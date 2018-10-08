@@ -1,0 +1,36 @@
+﻿@model MasterDetailExample.ViewModel.CartViewModel
+
+<div class="row order-grid">
+    <div class="btn-toolbar" role="toolbar" aria-label="toolbar">
+        <div class="btn-group btn-group-xs" role="group" aria-label="add product">
+            <button type="button" data-toggle="modal" data-target=".product-dialog" class="btn btn-default"  title="Add Product"><i class="fa fa-fw fa-plus"></i></button>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.CartItems.Count(); i++)
+            {
+                <tr>
+                    <td>
+                        @Model.CartItems.ElementAt(i).Product.Title
+                        @Html.Hidden("pid", Model.CartItems.ElementAt(i).ProductId)
+                    </td>
+                    <td>@Model.CartItems.ElementAt(i).Quantity</td>
+                    <td>@Model.CartItems.ElementAt(i).Cost</td>
+                    <td>@Model.CartItems.ElementAt(i).Total</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

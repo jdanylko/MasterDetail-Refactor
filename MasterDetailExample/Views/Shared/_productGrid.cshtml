@@ -1,0 +1,23 @@
+﻿@model ProductViewModel
+
+<div class="grid-container">
+    <table class="product-grid table table-condensed table-bordered table-responsive table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr data-id="@product.ProductId">
+                <td><input type="checkbox" value="@product.ProductId" /></td>
+                <td>@product.Title</td>
+                <td>@String.Format("{0:N2}", product.Price)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
